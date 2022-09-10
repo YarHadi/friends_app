@@ -24,9 +24,9 @@ async function getData() {
         email: user.email,
       });
     });
-    showUsers();
+    showUsers(users);
   } catch (error) {
-    console.log(`FRIENDS ERROR: ${error}`);
+    console.log(error);
     setTimeout(() => {
       location.reload();
     }, 2000);
@@ -64,14 +64,14 @@ function prepareToShow(data) {
     .join("");
 }
 
-function showUsers() {
-  friendsContainer.innerHTML = prepareToShow(filtersCheck());
+function showUsers(data) {
+  friendsContainer.innerHTML = prepareToShow(filtersCheck(data));
 }
 
 // filters check
 
-function filtersCheck() {
-  const sortedByAge = sortByAge(users);
+function filtersCheck(data) {
+  const sortedByAge = sortByAge(data);
   const sortedByName = sortByName(sortedByAge);
   const filteredByGender = filterByGender(sortedByName);
   return filteredByGender;
@@ -81,10 +81,13 @@ function filtersCheck() {
 
 function sortByAge(data) {
   // sorted up
-  // let sorted = data.sort((a, b) => a.age - b.age);
-
+  if (filterContainer.sort == "ageUp") {
+    return data.sort((a, b) => a.age - b.age);
+  }
   // sortedDown
-  // let sorted = data.sort((b, a) => a.age - b.age);
+  if (filterContainer.sort == "ageDown") {
+    return data.sort((b, a) => a.age - b.age);
+  }
 
   return data;
 }
@@ -93,44 +96,49 @@ function sortByAge(data) {
 
 function sortByName(data) {
   // sorted up
-  // let sorted = data.sort((userA, userB) =>
-  //         userA.firstName < userB.firstName ? -1 : 1);
+  if (filterContainer.sort == "nameUp") {
+    return data.sort((userA, userB) =>
+      userA.firstName < userB.firstName ? -1 : 1
+    );
+  }
 
   // sorted Down
-  // let sorted = data.sort((userA, userB) =>
-  //         userA.firstName > userB.firstName ? -1 : 1);
-
+  if (filterContainer.sort == "nameDown") {
+    return data.sort((userA, userB) =>
+      userA.firstName > userB.firstName ? -1 : 1
+    );
+  }
   return data;
 }
 
 // filter by gender
 
 function filterByGender(data) {
-
   // filtered male
-  // let sorted = data.filter(user => user.gender == 'male');
+
+  if (filterContainer.filter == "male") {
+    return data.filter((user) => user.gender == "male");
+  }
 
   //filtered female
-  // let sorted = data.filter(user => user.gender == 'female');
+  if (filterContainer.filter == "female") {
+    return data.filter((user) => user.gender == "female");
+  }
 
   return data;
 }
 
+//event listener
 
+const filterContainer = document.querySelector(".filter-container");
 
-
-// function filterByGender(data){
-//     data.map(user => console.log(user.gender));
-
-// filtered male
-// let sorted = data.filter(user => user.gender == 'male');
-
-//filtered female
-// let sorted = data.filter(user => user.gender == 'female');
-
-// console.log("--------------------------------------------");
-// sorted.map(user => console.log(user.gender));
-
-// return data;
-// }
-
+filterContainer.addEventListener("input", ({ target }) => {
+  if (target.name == "filter") {
+    filterContainer.filter = target.value;
+  }
+  if (target.name == "sort") {
+    filterContainer.sort = target.value;
+  }
+  console.log(target.name);
+  showUsers(users);
+});

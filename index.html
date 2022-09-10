@@ -13,38 +13,52 @@
     <header class="header-container"></header>
     <main class="main-container">
       <div class="filter-container">
-        <label class="" for="searchName">Search by name</label>
-        <input class="" type="text" name="searchName" id="searchName" />
 
-        <input type="checkbox" id="sortByAge" name="sortByAge" value="ageUp" />
+        <label class="" for="searchName">Search by name</label>
+        <input class="" type="text" name="search" id="searchName" />
+
+        <input type="radio" id="sortByAge" name="sort" value="ageUp" />
         <input
-          type="checkbox"
+          type="radio"
           id="sortByAge"
-          name="sortByAge"
-          value="ageDown"
+          name="sort"
+          value='ageDown'
         />
         <label for="sortByAge">Sort by age</label>
 
         <input
-          type="checkbox"
+          type="radio"
           id="sortByName"
-          name="sortByName"
+          name="sort"
           value="nameUp"
         />
         <input
-          type="checkbox"
+          type="radio"
           id="sortByName"
-          name="sortByName"
+          name="sort"
           value="nameDown"
         />
         <label for="sortByName">Sort by name</label>
 
         <input
-          type="checkbox"
-          id="filterByGender"
-          name="filterByGender"
-          value=""
+        class="input" 
+        type="radio" 
+        name="filter" 
+        value="male" 
+        id="male"
         />
+        <input
+        type="radio"
+        id="filterByGender"
+        name="filter"
+        value="female"
+        />
+        <input
+        type="radio"
+        id="filterByGender"
+        name="filter"
+        value="all"
+       />
         <label for="filterByGender">Filter By Gender</label>
 
         <!-- шукати, ввівши ім’я в поле пошуку -->
