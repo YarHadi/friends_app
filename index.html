@@ -8,26 +8,53 @@
 
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/styles.css" />
-      </head>
+  </head>
   <body>
-    <header class="header-container">
-
-    </header>
+    <header class="header-container"></header>
     <main class="main-container">
       <div class="filter-container">
+        <label class="" for="searchName">Search by name</label>
+        <input class="" type="text" name="searchName" id="searchName" />
 
-        sort by age
-        sort by name
+        <input type="checkbox" id="sortByAge" name="sortByAge" value="ageUp" />
+        <input
+          type="checkbox"
+          id="sortByAge"
+          name="sortByAge"
+          value="ageDown"
+        />
+        <label for="sortByAge">Sort by age</label>
 
-        filter by name
-        filter by sex
+        <input
+          type="checkbox"
+          id="sortByName"
+          name="sortByName"
+          value="nameUp"
+        />
+        <input
+          type="checkbox"
+          id="sortByName"
+          name="sortByName"
+          value="nameDown"
+        />
+        <label for="sortByName">Sort by name</label>
+
+        <input
+          type="checkbox"
+          id="filterByGender"
+          name="filterByGender"
+          value=""
+        />
+        <label for="filterByGender">Filter By Gender</label>
+
+        <!-- шукати, ввівши ім’я в поле пошуку -->
 
         reset filters
       </div>
       <div class="friends-container">
         <div class="person-container">
           <h1 class="person-name">Jennie Nichols</h1>
-          <img class="person-img" src="./killer_queen.webp">
+          <img class="person-img" src="./killer_queen.webp" />
           <p class="person-age">30</p>
           <p class="person-email">jennie.nichols@example.com</p>
           <p class="person-location">Billings</p>
