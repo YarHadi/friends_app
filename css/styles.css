@@ -28,7 +28,8 @@
 	border: 2px solid black;
 	background-color: bisque;
 	margin: 0 20px;
-
+	display: flex;
+    flex-wrap: wrap;
 }
 
 .person-container{
