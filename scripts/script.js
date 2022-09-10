@@ -23,7 +23,7 @@ async function getData() {
             email: user.email           
             })
         });
-        showData(users);
+        showUsers(users);
     }
     catch (error) {
         console.log(`FRIENDS ERROR: ${error}`);
@@ -39,22 +39,21 @@ async function getData() {
 
 const friendsContainer = document.querySelector(".friends-container");
 
-function showData(data){
+function showUsers(data){
     const userBoxes = data
-    .map((user)=> 
+    .map(({firstName, lastName, picture, age, email, city, country, gender, phone})=> 
         `<div class="person-container">
-          <h1 class="person-name">${user.firstName} ${user.lastName}</h1>
-          <img class="person-img" src="${user.picture}">
-          <p class="person-age">${user.age}</p>
-          <p class="person-email">${user.email}</p>
-          <p class="person-location">${user.city} <br> ${user.country} </p>
-          <p class="person-sex">${user.gender}</p>
-          <p class="person-phone">${user.phone}</p>
+          <h1 class="person-name">${firstName} ${lastName}</h1>
+          <img class="person-img" src="${picture}">
+          <p class="person-age">${age}</p>
+          <p class="person-email">${email}</p>
+          <p class="person-location">${city} <br> ${country} </p>
+          <p class="person-sex">${gender}</p>
+          <p class="person-phone">${phone}</p>
         </div>`
     )
     .join("");
     friendsContainer.innerHTML= userBoxes;
-    console.log(users);
 }
 
 
