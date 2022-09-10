@@ -74,7 +74,8 @@ function filtersCheck(data) {
   const sortedByAge = sortByAge(data);
   const sortedByName = sortByName(sortedByAge);
   const filteredByGender = filterByGender(sortedByName);
-  return filteredByGender;
+  const searchedByName = searchByName(filteredByGender);
+  return searchedByName;
 }
 
 // sort by age
@@ -128,11 +129,27 @@ function filterByGender(data) {
   return data;
 }
 
+// search by name
+
+function searchByName(data) {
+  if (filterContainer.search) {
+    return data.filter((user) =>
+      (user.firstName + " " + user.lastName)
+        .toLowerCase()
+        .includes(filterContainer.search.toLowerCase())
+    );
+  }
+  return data;
+}
+
 //event listener
 
 const filterContainer = document.querySelector(".filter-container");
 
 filterContainer.addEventListener("input", ({ target }) => {
+  if (target.name == "search") {
+    filterContainer.search = target.value;
+  }
   if (target.name == "filter") {
     filterContainer.filter = target.value;
   }
@@ -142,3 +159,4 @@ filterContainer.addEventListener("input", ({ target }) => {
   console.log(target.name);
   showUsers(users);
 });
+
