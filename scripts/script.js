@@ -106,7 +106,6 @@ function sortByName(data) {
 // filter by gender
 
 function filterByGender(data) {
-  data.map((user) => console.log(user.gender));
 
   // filtered male
   // let sorted = data.filter(user => user.gender == 'male');
@@ -114,11 +113,11 @@ function filterByGender(data) {
   //filtered female
   // let sorted = data.filter(user => user.gender == 'female');
 
-  console.log("--------------------------------------------");
-  sorted.map((user) => console.log(user.gender));
-
   return data;
 }
+
+
+
 
 // function filterByGender(data){
 //     data.map(user => console.log(user.gender));
