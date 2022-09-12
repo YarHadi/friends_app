@@ -8,38 +8,58 @@
 
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link href="http://fonts.cdnfonts.com/css/junge" rel="stylesheet">
   </head>
   <body>
     <header class="header-container"></header>
     <main class="main-container">
+
       <div class="filter-container">
 
-        <label class="" for="searchName">Search by name</label>
-        <input class="" type="text" name="search" id="searchName" />
-
-        <input type="radio" id="sortByAge" name="sort" value="ageUp" />
+        <label class="filter-text" for="searchName">Search by name:</label>
+        <input class="search-name-field" type="text" name="search" id="searchName" />
+      
+        <p class="filter-text">Sort by age:</p>
+        <div class="filter-box">
+        <input type="radio" id="sortByAgeUp" name="sort" value="ageUp" />
+        <label for="sortByAgeUp">
+          <img class="filter-img" src="./icons/ageUp.png">
+        </label>
         <input
           type="radio"
-          id="sortByAge"
+          id="sortByAgeDown"
           name="sort"
           value='ageDown'
         />
-        <label for="sortByAge">Sort by age</label>
+        <label for="sortByAgeDown">
+          <img class="filter-img" src="./icons/ageDown.png">
+        </label>
+      </div>
 
+      <p class="filter-text">Sort by name:</p>
+      <div class="filter-box">
         <input
           type="radio"
-          id="sortByName"
+          id="sortByNameUp"
           name="sort"
           value="nameUp"
         />
+        <label for="sortByNameUp">
+          <img class="filter-img" src="./icons/az.jpg">
+        </label>
         <input
           type="radio"
-          id="sortByName"
+          id="sortByNameDown"
           name="sort"
           value="nameDown"
         />
-        <label for="sortByName">Sort by name</label>
+        <label for="sortByNameDown">
+          <img class="filter-img" src="./icons/za.png">
+        </label>
+        </div>
 
+        <p class="filter-text">Filter by gender:</p>
+        <div class="filter-box">
         <input
         class="input" 
         type="radio" 
@@ -47,31 +67,50 @@
         value="male" 
         id="male"
         />
+        <label for="male">
+          <img class="filter-img" src="./icons/male.png">
+        </label>
         <input
         type="radio"
-        id="filterByGender"
+        id="female"
         name="filter"
         value="female"
         />
+        <label for="female">
+          <img class="filter-img"src="./icons/female.png">
+        </label>
         <input
         type="radio"
-        id="filterByGender"
+        id="all"
         name="filter"
         value="all"
        />
-        <label for="filterByGender">Filter By Gender</label>
+       <label for="all" >
+        <img class="filter-img" src="./icons/all.png">
+      </label>
+        </div>
 
-        <!-- шукати, ввівши ім’я в поле пошуку -->
-
-        reset filters
       </div>
+
       <div class="friends-container">
         <div class="person-container">
-          loading
+          <img class="person-img" src="./giorno.webp">
+          <div class="person-data">          
+            <h1 class="person-name">firstName lastName</h1>          
+            <p class="person-age person-text">Age: 30</p>
+            <p class="person-sex person-text">Gender</p>
+            <div class="person-data more-data">
+              <p class="person-email person-text">E-mail: example@email.com</p>
+              <p class="person-location person-text">City: Kyiv</p>
+              <p class="person-location person-text">Country: Ukraine</p>
+              <p class="person-sex person-text">Gender</p>
+              <p class="person-phone person-text">Phone-number: 123456</p>
+              </div>
+          </div>
         </div>
-      </div>
+        </div>
     </main>
-    <script src="./scripts/script.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
   </body>
 </html>
 
