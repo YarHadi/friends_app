@@ -38,6 +38,20 @@ body {
   color: #f5efe0;
 }
 
+.filter-input{
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+
+#nav-filter-btn:checked ~ .filter-container{
+	display: flex;
+}
+
+.nav-img{
+	height: 30px;
+}
+
 /* loader */
 
 .lds-roller {

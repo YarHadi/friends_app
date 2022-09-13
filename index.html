@@ -16,15 +16,10 @@
   </head>
   <body>
     <header class="header-container">
-      <button>
-        <img src="" />
-      </button>
-      <p class="header-text">Friends App</p>
-      <a href="">
-        <img src="" class="header-user-img" />
-      </a>
-    </header>
-    <main class="main-container">
+      <input type="checkbox" class="filter-input" id="nav-filter-btn" />
+      <label for="nav-filter-btn" id="nav-filter-btn-label">
+        <img src="./icons/search.png" style="cursor: pointer" class="nav-img"/>
+      </label>
       <div class="filter-container">
         <label class="filter-text" for="searchName">Search by name:</label>
         <input
@@ -85,6 +80,13 @@
           </label>
         </div>
       </div>
+      <p class="header-text">Friends App</p>
+      <a href="">
+        <img src="" class="header-user-img" />
+      </a>
+    </header>
+    <main class="main-container">
+      
 
       <div class="friends-container">
         <div class="lds-roller">
