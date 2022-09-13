@@ -52,14 +52,19 @@ function prepareToShow(data) {
         phone,
       }) =>
         `<div class="person-container">
-          <h1 class="person-name">${firstName} ${lastName}</h1>
-          <img class="person-img" src="${picture}">
-          <p class="person-age">${age}</p>
-          <p class="person-email">${email}</p>
-          <p class="person-location">${city} <br> ${country} </p>
-          <p class="person-sex">${gender}</p>
-          <p class="person-phone">${phone}</p>
-        </div>`
+        <img class="person-img" src="${picture}">
+        <div class="person-data">          
+          <h1 class="person-name">${firstName} ${lastName}</h1>          
+          <p class="person-age person-text">Age: ${age}</p>
+          <p class="person-sex person-text">${gender}</p>
+          <div class="person-data more-data">
+            <p class="person-email person-text">E-mail: ${email}</p>
+            <p class="person-location person-text">City: ${city}</p>
+            <p class="person-location person-text">Country: ${country}</p>
+            <p class="person-phone person-text">Phone-number: ${phone}</p>
+            </div>
+        </div>
+      </div>`
     )
     .join("");
 }

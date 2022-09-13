@@ -1,136 +1,243 @@
-html, body{
-	height: 100%;
-}
-
-body{
-	background: rgb(56, 84, 72);
+html,
+body {
+  height: 100%;
 }
 
 /* header */
 
 .header-container {
-	height: 60px;
-	background: rgba(62, 86, 75, 0.34);
-	box-shadow: 0px 4px 4px rgba(48, 55, 48, 0.25);
-  }
-  
-  .main-container {
-	padding: 20px;
-	display: flex;
-	justify-content: center;
-	}
-  
-  /* filter container */
-  
-  .filter-container {
-	display: flex;
-	width: fit-content;
-	height: fit-content;
-	padding: 20px;
-	flex-direction: column;
-	position: sticky;
-    top: 20px;
-	background: linear-gradient(90deg, #3E564B 2.5%, rgba(171, 196, 190, 0) 120.11%);
-	mix-blend-mode: normal;
-	align-items: center;
-  }
+  height: 60px;
+  background: #d76735;
+  display: flex;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
 
-  .search-name-field{
-	width: 200px;
-height: 40px;
-	background: rgba(217, 217, 217, 0.5) ;
-mix-blend-mode: luminosity;
-border-radius: 50px;
-border: rgb(62, 86, 75);
-background-image: url('../icons/search.png');
-background-size: 20px;
-background-repeat: no-repeat;
+.main-container {
+  padding: 20px;
+  display: flex;
+  min-height: -webkit-fill-available;
+  height: fit-content;
+  justify-content: center;
+  background: url(../icons/topLeft.png) left top no-repeat,
+    url(../icons/topRight.png) right top no-repeat,
+    url(../icons/bottomLeft.png) left bottom no-repeat,
+    url(../icons/bottomRight.png) right bottom no-repeat,
+    #fff5eb left top repeat;
+}
+
+.header-text {
+  font-family: "Judson";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+  color: #f5efe0;
+}
+
+/* loader */
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  top: 40%;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d76735;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* filter container */
+
+.filter-container {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  position: fixed;
+  flex-direction: column;
+  background: rgba(219, 212, 215, 0.92);
+  top: 89px;
+  left: 10px;
+  align-items: center;
+  z-index: 2;
+}
+
+.search-name-field {
+  width: 200px;
+  height: 40px;
+  background: rgb(131, 124, 125);
+  border-radius: 50px;
+  border: rgb(62, 86, 75);
+  background-image: url("../icons/search.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
   background-position: 10px 10px;
   padding-left: 40px;
   color: rgb(255, 255, 255);
-  }
-
-  .filter-text{
-	font-family: 'Junge';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 29px;
-color: rgb(255, 255, 255);
-margin: 30px;
-  }
-
-  .filter-img{
-	max-height: 80px;
-	filter: brightness(0) invert(1);
-  }
-
-  .filter-box{
-	display: flex;
-    align-items: center;
-  }
-
- 
-  /* person */
-  
-  .friends-container {
-    margin: 0 20px;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(4, auto);
 }
 
-.person-container{
-	display: flex;
-    flex-direction: column;
-    align-items: center;
+.filter-text {
+  font-family: "Junge";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #7b4a4a;
+  margin: 30px;
 }
-  
-  .person-data {
-	width: -webkit-fill-available;
-	height: fit-content;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 40px 20px 20px 20px;
-    padding: 50px 10px 10px 10px;
-	background: rgba(255, 255, 255, 0.5);
-	border-radius: 20px;
-  }
 
-  .more-data{
-	display: flex;
-	width: max-content;
-    margin: 0;
-    padding: 0;
-    background: none;
-  }
-  
-  .person-img {
-	width: 80px;
-	height: 80px;
-	object-fit: cover;
-	border-radius: 100%;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.13);
-	position: fixed;
-  }
+.filter-img {
+  max-height: 80px;
+}
 
-  .person-name{
-	font-family: 'Junge';
-font-style: normal;
-font-weight: 400;
-font-size: 26px;
-line-height: 32px;
-color: #FFFFFF;
-  }
+.filter-box {
+  display: flex;
+  align-items: center;
+}
 
-  .person-text{
-	font-family: 'Junge';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 29px;
+/* person */
 
-color: #FFFFFF;
-  }
-  
+.friends-container {
+  margin: 0 20px;
+  display: grid;
+  width: 60%;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
+}
+
+.person-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.person-data {
+  width: -webkit-fill-available;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: -47px 20px 20px 20px;
+  padding: 50px 10px 10px 10px;
+  background: #8fb0a9;
+  border-radius: 15px;
+}
+
+.more-data {
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+.person-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 100%;
+  border: 10px solid #8fb0a9;
+  background: #d9d9d9;
+}
+
+.person-name {
+  font-family: "Junge";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #ffffff;
+}
+
+.person-text {
+  font-family: "Junge";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #ffffff;
+}
+

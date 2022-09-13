@@ -8,92 +8,97 @@
 
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/styles.css" />
-    <link href="http://fonts.cdnfonts.com/css/junge" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Judson"
+      rel="stylesheet"
+    />
+    <link href="http://fonts.cdnfonts.com/css/junge" rel="stylesheet" />
   </head>
   <body>
-    <header class="header-container"></header>
+    <header class="header-container">
+      <button>
+        <img src="" />
+      </button>
+      <p class="header-text">Friends App</p>
+      <a href="">
+        <img src="" class="header-user-img" />
+      </a>
+    </header>
     <main class="main-container">
-
       <div class="filter-container">
-
         <label class="filter-text" for="searchName">Search by name:</label>
-        <input class="search-name-field" type="text" name="search" id="searchName" />
-      
+        <input
+          class="search-name-field"
+          type="text"
+          name="search"
+          id="searchName"
+        />
+
         <p class="filter-text">Sort by age:</p>
         <div class="filter-box">
-        <input type="radio" id="sortByAgeUp" name="sort" value="ageUp" />
-        <label for="sortByAgeUp">
-          <img class="filter-img" src="./icons/ageUp.png">
-        </label>
-        <input
-          type="radio"
-          id="sortByAgeDown"
-          name="sort"
-          value='ageDown'
-        />
-        <label for="sortByAgeDown">
-          <img class="filter-img" src="./icons/ageDown.png">
-        </label>
-      </div>
+          <input type="radio" id="sortByAgeUp" name="sort" value="ageUp" />
+          <label for="sortByAgeUp">
+            <img class="filter-img" src="./icons/ageUp.png" />
+          </label>
+          <input type="radio" id="sortByAgeDown" name="sort" value="ageDown" />
+          <label for="sortByAgeDown">
+            <img class="filter-img" src="./icons/ageDown.png" />
+          </label>
+        </div>
 
-      <p class="filter-text">Sort by name:</p>
-      <div class="filter-box">
-        <input
-          type="radio"
-          id="sortByNameUp"
-          name="sort"
-          value="nameUp"
-        />
-        <label for="sortByNameUp">
-          <img class="filter-img" src="./icons/az.jpg">
-        </label>
-        <input
-          type="radio"
-          id="sortByNameDown"
-          name="sort"
-          value="nameDown"
-        />
-        <label for="sortByNameDown">
-          <img class="filter-img" src="./icons/za.png">
-        </label>
+        <p class="filter-text">Sort by name:</p>
+        <div class="filter-box">
+          <input type="radio" id="sortByNameUp" name="sort" value="nameUp" />
+          <label for="sortByNameUp">
+            <img class="filter-img" src="./icons/az.jpg" />
+          </label>
+          <input
+            type="radio"
+            id="sortByNameDown"
+            name="sort"
+            value="nameDown"
+          />
+          <label for="sortByNameDown">
+            <img class="filter-img" src="./icons/za.png" />
+          </label>
         </div>
 
         <p class="filter-text">Filter by gender:</p>
         <div class="filter-box">
-        <input
-        class="input" 
-        type="radio" 
-        name="filter" 
-        value="male" 
-        id="male"
-        />
-        <label for="male">
-          <img class="filter-img" src="./icons/male.png">
-        </label>
-        <input
-        type="radio"
-        id="female"
-        name="filter"
-        value="female"
-        />
-        <label for="female">
-          <img class="filter-img"src="./icons/female.png">
-        </label>
-        <input
-        type="radio"
-        id="all"
-        name="filter"
-        value="all"
-       />
-       <label for="all" >
-        <img class="filter-img" src="./icons/all.png">
-      </label>
+          <input
+            class="input"
+            type="radio"
+            name="filter"
+            value="male"
+            id="male"
+          />
+          <label for="male">
+            <img class="filter-img" src="./icons/male.png" />
+          </label>
+          <input type="radio" id="female" name="filter" value="female" />
+          <label for="female">
+            <img class="filter-img" src="./icons/female.png" />
+          </label>
+          <input type="radio" id="all" name="filter" value="all" />
+          <label for="all">
+            <img class="filter-img" src="./icons/all.png" />
+          </label>
         </div>
-
       </div>
 
       <div class="friends-container">
-        <div class="person-container">
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <!-- <div class="person-container">
           <img class="person-img" src="./giorno.webp">
           <div class="person-data">          
             <h1 class="person-name">firstName lastName</h1>          
@@ -107,10 +112,10 @@
               <p class="person-phone person-text">Phone-number: 123456</p>
               </div>
           </div>
-        </div>
-        </div>
+        </div> -->
+      </div>
     </main>
-    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
 
