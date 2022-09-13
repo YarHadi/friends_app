@@ -13,7 +13,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 .main-container {
@@ -38,18 +38,26 @@ body {
   color: #f5efe0;
 }
 
-.filter-input{
-	position: absolute;
-	width: 0;
-	height: 0;
+.filter-input {
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 
-#nav-filter-btn:checked ~ .filter-container{
-	display: flex;
+#nav-filter-btn:checked ~ .filter-container {
+  display: flex;
 }
 
-.nav-img{
-	height: 30px;
+.nav-img {
+  height: 30px;
+}
+
+.header-user-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 100%;
+  border: solid white;
 }
 
 /* loader */
@@ -147,11 +155,11 @@ body {
   width: fit-content;
   height: fit-content;
   padding: 20px;
-  position: fixed;
+  position: absolute;
   flex-direction: column;
   background: rgba(219, 212, 215, 0.92);
-  top: 89px;
-  left: 10px;
+  top: 90px;
+  left: px;
   align-items: center;
   z-index: 2;
 }
@@ -177,11 +185,17 @@ body {
   font-size: 24px;
   line-height: 29px;
   color: #7b4a4a;
-  margin: 30px;
+  margin: 15px;
 }
 
 .filter-img {
-  max-height: 80px;
+  max-height: 50px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.filter-box input {
+  cursor: pointer;
 }
 
 .filter-box {
@@ -192,10 +206,9 @@ body {
 /* person */
 
 .friends-container {
-  margin: 0 20px;
-  display: grid;
-  width: 60%;
-  grid-template-columns: repeat(4, auto);
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -206,7 +219,7 @@ body {
 }
 
 .person-data {
-  width: -webkit-fill-available;
+  width: 330px;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -251,7 +264,47 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-
+  margin: 3px 0;
   color: #ffffff;
+}
+
+@media screen and (max-width: 530px) {
+  .header-text {
+    font-size: 30px;
+  }
+
+  .header-user-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .person-text {
+    font-size: 13px;
+    margin: 1px 0;
+  }
+
+  .person-name {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .person-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .person-data {
+    width: 242px;
+  }
+
+  .filter-container {
+    left: 13%;
+  }
+
+  .filter-text {
+    font-size: 20px;
+    line-height: 22px;
+    margin: 5px;
+  }
 }
 

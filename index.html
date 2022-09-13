@@ -18,7 +18,11 @@
     <header class="header-container">
       <input type="checkbox" class="filter-input" id="nav-filter-btn" />
       <label for="nav-filter-btn" id="nav-filter-btn-label">
-        <img src="./icons/search.png" style="cursor: pointer" class="nav-img"/>
+        <img
+          src="./icons/menu.png"
+          style="cursor: pointer; filter: invert(100%)"
+          class="nav-img"
+        />
       </label>
       <div class="filter-container">
         <label class="filter-text" for="searchName">Search by name:</label>
@@ -28,7 +32,6 @@
           name="search"
           id="searchName"
         />
-
         <p class="filter-text">Sort by age:</p>
         <div class="filter-box">
           <input type="radio" id="sortByAgeUp" name="sort" value="ageUp" />
@@ -40,7 +43,6 @@
             <img class="filter-img" src="./icons/ageDown.png" />
           </label>
         </div>
-
         <p class="filter-text">Sort by name:</p>
         <div class="filter-box">
           <input type="radio" id="sortByNameUp" name="sort" value="nameUp" />
@@ -57,7 +59,6 @@
             <img class="filter-img" src="./icons/za.png" />
           </label>
         </div>
-
         <p class="filter-text">Filter by gender:</p>
         <div class="filter-box">
           <input
@@ -81,13 +82,11 @@
         </div>
       </div>
       <p class="header-text">Friends App</p>
-      <a href="">
-        <img src="" class="header-user-img" />
+      <a href="https://github.com/YarHadi/kottans-frontend" target="_blank">
+        <img src="./icons/header-user-photo.png" class="header-user-img" />
       </a>
     </header>
     <main class="main-container">
-      
-
       <div class="friends-container">
         <div class="lds-roller">
           <div></div>
@@ -99,22 +98,6 @@
           <div></div>
           <div></div>
         </div>
-
-        <!-- <div class="person-container">
-          <img class="person-img" src="./giorno.webp">
-          <div class="person-data">          
-            <h1 class="person-name">firstName lastName</h1>          
-            <p class="person-age person-text">Age: 30</p>
-            <p class="person-sex person-text">Gender</p>
-            <div class="person-data more-data">
-              <p class="person-email person-text">E-mail: example@email.com</p>
-              <p class="person-location person-text">City: Kyiv</p>
-              <p class="person-location person-text">Country: Ukraine</p>
-              <p class="person-sex person-text">Gender</p>
-              <p class="person-phone person-text">Phone-number: 123456</p>
-              </div>
-          </div>
-        </div> -->
       </div>
     </main>
     <script src="./scripts/script.js"></script>
