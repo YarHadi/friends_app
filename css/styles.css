@@ -207,7 +207,7 @@ body {
 
 .friends-container {
   display: flex;
-  width: 80%;
+  width: 90%;
   flex-wrap: wrap;
   justify-content: center;
 }
