@@ -37,7 +37,7 @@ async function getData() {
 
 const friendsContainer = document.querySelector(".friends-container");
 
-function prepareToShow(data) {
+function createUserCard(data) {
   return data
     .map(
       ({
@@ -69,7 +69,7 @@ function prepareToShow(data) {
 }
 
 function showUsers(data) {
-  friendsContainer.innerHTML = prepareToShow(filtersCheck(data));
+  friendsContainer.innerHTML = createUserCard(filtersCheck(data));
 }
 
 // filters check
@@ -85,13 +85,15 @@ function filtersCheck(data) {
 // sort by age
 
 function sortByAge(data) {
+  let sorted=[];
+  data.map(person => sorted.push(person));
   // sorted up
   if (filterContainer.sort == "ageUp") {
-    return data.sort((a, b) => a.age - b.age);
+    return sorted.sort(({age: a}, {age: b}) => a - b);
   }
   // sortedDown
   if (filterContainer.sort == "ageDown") {
-    return data.sort((b, a) => a.age - b.age);
+    return sorted.sort(({age: b}, {age: a}) => a - b);
   }
   return data;
 }
@@ -99,17 +101,19 @@ function sortByAge(data) {
 // sort By Name
 
 function sortByName(data) {
+  let sorted=[];
+  data.map(person => sorted.push(person));
   // sorted up
   if (filterContainer.sort == "nameUp") {
-    return data.sort((userA, userB) =>
-      userA.firstName < userB.firstName ? -1 : 1
+    return sorted.sort(({firstName: a}, {firstName: b}) =>
+      a < b ? -1 : 1
     );
   }
 
   // sorted Down
   if (filterContainer.sort == "nameDown") {
-    return data.sort((userA, userB) =>
-      userA.firstName > userB.firstName ? -1 : 1
+    return sorted.sort(({firstName: a}, {firstName: b}) =>
+      a > b ? -1 : 1
     );
   }
   return data;
