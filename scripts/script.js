@@ -85,15 +85,13 @@ function filtersCheck(data) {
 // sort by age
 
 function sortByAge(data) {
-  let sorted=[];
-  data.map(person => sorted.push(person));
-  // sorted up
-  if (filterContainer.sort == "ageUp") {
-    return sorted.sort(({age: a}, {age: b}) => a - b);
-  }
-  // sortedDown
-  if (filterContainer.sort == "ageDown") {
-    return sorted.sort(({age: b}, {age: a}) => a - b);
+  let sorted = [];
+  data.map((person) => sorted.push(person));
+  switch (filterContainer.sort) {
+    case "ageUp":
+      return sorted.sort(({ age: a }, { age: b }) => a - b);
+    case "ageDown":
+      return sorted.sort(({ age: b }, { age: a }) => a - b);
   }
   return data;
 }
@@ -101,20 +99,17 @@ function sortByAge(data) {
 // sort By Name
 
 function sortByName(data) {
-  let sorted=[];
-  data.map(person => sorted.push(person));
-  // sorted up
-  if (filterContainer.sort == "nameUp") {
-    return sorted.sort(({firstName: a}, {firstName: b}) =>
-      a < b ? -1 : 1
-    );
-  }
-
-  // sorted Down
-  if (filterContainer.sort == "nameDown") {
-    return sorted.sort(({firstName: a}, {firstName: b}) =>
-      a > b ? -1 : 1
-    );
+  let sorted = [];
+  data.map((person) => sorted.push(person));
+  switch (filterContainer.sort) {
+    case "nameUp":
+      return sorted.sort(({ firstName: a }, { firstName: b }) =>
+        a < b ? -1 : 1
+      );
+    case "nameDown":
+      return sorted.sort(({ firstName: a }, { firstName: b }) =>
+        a > b ? -1 : 1
+      );
   }
   return data;
 }
@@ -122,17 +117,12 @@ function sortByName(data) {
 // filter by gender
 
 function filterByGender(data) {
-  // filtered male
-
-  if (filterContainer.filter == "male") {
-    return data.filter((user) => user.gender == "male");
+  switch (filterContainer.filter) {
+    case "male":
+      return data.filter(({ gender }) => gender == "male");
+    case "female":
+      return data.filter(({ gender }) => gender == "female");
   }
-
-  //filtered female
-  if (filterContainer.filter == "female") {
-    return data.filter((user) => user.gender == "female");
-  }
-
   return data;
 }
 
@@ -140,8 +130,8 @@ function filterByGender(data) {
 
 function searchByName(data) {
   if (filterContainer.search) {
-    return data.filter((user) =>
-      (user.firstName + " " + user.lastName)
+    return data.filter(({ firstName, lastName }) =>
+      (firstName + " " + lastName)
         .toLowerCase()
         .includes(filterContainer.search.toLowerCase())
     );
@@ -154,14 +144,16 @@ function searchByName(data) {
 const filterContainer = document.querySelector(".filter-container");
 
 filterContainer.addEventListener("input", ({ target }) => {
-  if (target.name == "search") {
-    filterContainer.search = target.value;
-  }
-  if (target.name == "filter") {
-    filterContainer.filter = target.value;
-  }
-  if (target.name == "sort") {
-    filterContainer.sort = target.value;
+  switch (target.name) {
+    case "search":
+      filterContainer.search = target.value;
+      break;
+    case "filter":
+      filterContainer.filter = target.value;
+      break;
+    case "sort":
+      filterContainer.sort = target.value;
+      break;
   }
   showUsers(users);
 });
@@ -186,14 +178,14 @@ resetBtn.addEventListener("click", () => {
   for (var i = 0; i < sorting.length; i++) {
     sorting[i].checked = false;
   }
-  filterContainer.sort = "all";
+  filterContainer.sort = 0;
 
   const filter = document.getElementsByName("filter");
   for (var i = 0; i < filter.length - 1; i++) {
     filter[i].checked = false;
   }
   filter[filter.length - 1].checked = true;
-  filterContainer.filter = "all";
+  filterContainer.filter = 0;
 
   const search = document.getElementById("searchName");
   search.value = "";
