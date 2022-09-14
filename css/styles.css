@@ -7,7 +7,7 @@ body {
 
 .header-container {
   height: 60px;
-  background: #d76735;
+  background: rgb(215, 103, 53);
   display: flex;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   flex-direction: row;
@@ -26,7 +26,7 @@ body {
     url(../icons/topRight.png) right top no-repeat,
     url(../icons/bottomLeft.png) left bottom no-repeat,
     url(../icons/bottomRight.png) right bottom no-repeat,
-    #fff5eb left top repeat;
+    rgb(255, 245, 235) left top repeat;
 }
 
 .header-text {
@@ -35,7 +35,7 @@ body {
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
-  color: #f5efe0;
+  color: rgb(245, 239, 224);
 }
 
 .filter-input {
@@ -57,7 +57,7 @@ body {
   height: 60px;
   object-fit: cover;
   border-radius: 100%;
-  border: solid white;
+  border: solid rgb(255, 255, 255);
 }
 
 /* loader */
@@ -80,7 +80,7 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #d76735;
+  background: rgb(215, 103, 53);
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
@@ -184,7 +184,7 @@ body {
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
-  color: #7b4a4a;
+  color: rgb(123, 74, 74);
   margin: 15px;
 }
 
@@ -201,6 +201,23 @@ body {
 .filter-box {
   display: flex;
   align-items: center;
+}
+
+.reset-btn {
+  font-family: "Junge";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: rgb(123, 74, 74);
+  margin: 15px;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: inherit;
+  left: 225px;
+  top: 0px;
 }
 
 /* person */
@@ -226,16 +243,8 @@ body {
   align-items: center;
   margin: -47px 20px 20px 20px;
   padding: 50px 10px 10px 10px;
-  background: #8fb0a9;
+  background: rgb(143, 176, 169);
   border-radius: 15px;
-}
-
-.more-data {
-  display: flex;
-  width: max-content;
-  margin: 0;
-  padding: 0;
-  background: none;
 }
 
 .person-img {
@@ -244,8 +253,8 @@ body {
   object-fit: cover;
   z-index: 1;
   border-radius: 100%;
-  border: 10px solid #8fb0a9;
-  background: #d9d9d9;
+  border: 10px solid rgb(143, 176, 169);
+  background: rgb(217, 217, 217);
 }
 
 .person-name {
@@ -254,8 +263,7 @@ body {
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
-
-  color: #ffffff;
+  color: rgb(255, 255, 255);
 }
 
 .person-text {
@@ -265,7 +273,7 @@ body {
   font-size: 16px;
   line-height: 19px;
   margin: 3px 0;
-  color: #ffffff;
+  color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 530px) {

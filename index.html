@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css?family=Judson"
       rel="stylesheet"
     />
-    <link href="http://fonts.cdnfonts.com/css/junge" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/junge" rel="stylesheet" />
   </head>
   <body>
     <header class="header-container">
@@ -25,6 +25,7 @@
         />
       </label>
       <div class="filter-container">
+        <button class="reset-btn close-btn" onclick="closeFilters()">X</button>
         <label class="filter-text" for="searchName">Search by name:</label>
         <input
           class="search-name-field"
@@ -75,11 +76,12 @@
           <label for="female">
             <img class="filter-img" src="./icons/female.png" />
           </label>
-          <input type="radio" id="all" name="filter" value="all" />
+          <input type="radio" id="all" name="filter" value="all" checked />
           <label for="all">
             <img class="filter-img" src="./icons/all.png" />
           </label>
         </div>
+        <button class="reset-btn" id="reset-button">Reset filters</button>
       </div>
       <p class="header-text">Friends App</p>
       <a href="https://github.com/YarHadi/kottans-frontend" target="_blank">

@@ -1,7 +1,7 @@
 const url =
   "https://randomuser.me/api/?results=30&inc=name,location,picture,dob,email,gender,phone";
 
-let users = [];
+const users = [];
 
 // get users data
 
@@ -37,7 +37,7 @@ async function getData() {
 
 const friendsContainer = document.querySelector(".friends-container");
 
-function prepareToShow(data) {
+function createUserCard(data) {
   return data
     .map(
       ({
@@ -57,12 +57,11 @@ function prepareToShow(data) {
           <h1 class="person-name">${firstName} ${lastName}</h1>          
           <p class="person-age person-text">Age: ${age}</p>
           <p class="person-sex person-text">${gender}</p>
-          <div class="person-data more-data">
             <p class="person-email person-text">E-mail: ${email}</p>
             <p class="person-location person-text">City: ${city}</p>
             <p class="person-location person-text">Country: ${country}</p>
             <p class="person-phone person-text">Phone-number: ${phone}</p>
-            </div>
+
         </div>
       </div>`
     )
@@ -70,7 +69,7 @@ function prepareToShow(data) {
 }
 
 function showUsers(data) {
-  friendsContainer.innerHTML = prepareToShow(filtersCheck(data));
+  friendsContainer.innerHTML = createUserCard(filtersCheck(data));
 }
 
 // filters check
@@ -86,33 +85,31 @@ function filtersCheck(data) {
 // sort by age
 
 function sortByAge(data) {
-  // sorted up
-  if (filterContainer.sort == "ageUp") {
-    return data.sort((a, b) => a.age - b.age);
+  let sorted = [];
+  data.map((person) => sorted.push(person));
+  switch (filterContainer.sort) {
+    case "ageUp":
+      return sorted.sort(({ age: a }, { age: b }) => a - b);
+    case "ageDown":
+      return sorted.sort(({ age: b }, { age: a }) => a - b);
   }
-  // sortedDown
-  if (filterContainer.sort == "ageDown") {
-    return data.sort((b, a) => a.age - b.age);
-  }
-
   return data;
 }
 
 // sort By Name
 
 function sortByName(data) {
-  // sorted up
-  if (filterContainer.sort == "nameUp") {
-    return data.sort((userA, userB) =>
-      userA.firstName < userB.firstName ? -1 : 1
-    );
-  }
-
-  // sorted Down
-  if (filterContainer.sort == "nameDown") {
-    return data.sort((userA, userB) =>
-      userA.firstName > userB.firstName ? -1 : 1
-    );
+  let sorted = [];
+  data.map((person) => sorted.push(person));
+  switch (filterContainer.sort) {
+    case "nameUp":
+      return sorted.sort(({ firstName: a }, { firstName: b }) =>
+        a < b ? -1 : 1
+      );
+    case "nameDown":
+      return sorted.sort(({ firstName: a }, { firstName: b }) =>
+        a > b ? -1 : 1
+      );
   }
   return data;
 }
@@ -120,17 +117,12 @@ function sortByName(data) {
 // filter by gender
 
 function filterByGender(data) {
-  // filtered male
-
-  if (filterContainer.filter == "male") {
-    return data.filter((user) => user.gender == "male");
+  switch (filterContainer.filter) {
+    case "male":
+      return data.filter(({ gender }) => gender == "male");
+    case "female":
+      return data.filter(({ gender }) => gender == "female");
   }
-
-  //filtered female
-  if (filterContainer.filter == "female") {
-    return data.filter((user) => user.gender == "female");
-  }
-
   return data;
 }
 
@@ -138,8 +130,8 @@ function filterByGender(data) {
 
 function searchByName(data) {
   if (filterContainer.search) {
-    return data.filter((user) =>
-      (user.firstName + " " + user.lastName)
+    return data.filter(({ firstName, lastName }) =>
+      (firstName + " " + lastName)
         .toLowerCase()
         .includes(filterContainer.search.toLowerCase())
     );
@@ -152,16 +144,52 @@ function searchByName(data) {
 const filterContainer = document.querySelector(".filter-container");
 
 filterContainer.addEventListener("input", ({ target }) => {
-  if (target.name == "search") {
-    filterContainer.search = target.value;
+  switch (target.name) {
+    case "search":
+      filterContainer.search = target.value;
+      break;
+    case "filter":
+      filterContainer.filter = target.value;
+      break;
+    case "sort":
+      filterContainer.sort = target.value;
+      break;
   }
-  if (target.name == "filter") {
-    filterContainer.filter = target.value;
+  showUsers(users);
+});
+
+filterContainer.addEventListener("keyup", function (e) {
+  if (e.keyCode == 13) {
+    closeFilters();
   }
-  if (target.name == "sort") {
-    filterContainer.sort = target.value;
+});
+
+function closeFilters() {
+  const filtersInput = document.querySelector(".filter-input");
+  filtersInput.checked = false;
+}
+
+// reset
+
+const resetBtn = document.getElementById("reset-button");
+
+resetBtn.addEventListener("click", () => {
+  const sorting = document.getElementsByName("sort");
+  for (var i = 0; i < sorting.length; i++) {
+    sorting[i].checked = false;
   }
-  console.log(target.name);
+  filterContainer.sort = 0;
+
+  const filter = document.getElementsByName("filter");
+  for (var i = 0; i < filter.length - 1; i++) {
+    filter[i].checked = false;
+  }
+  filter[filter.length - 1].checked = true;
+  filterContainer.filter = 0;
+
+  const search = document.getElementById("searchName");
+  search.value = "";
+  filterContainer.search = "";
   showUsers(users);
 });
 
