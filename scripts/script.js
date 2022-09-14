@@ -1,7 +1,7 @@
 const url =
   "https://randomuser.me/api/?results=30&inc=name,location,picture,dob,email,gender,phone";
 
-let users = [];
+const users = [];
 
 // get users data
 
@@ -57,12 +57,11 @@ function prepareToShow(data) {
           <h1 class="person-name">${firstName} ${lastName}</h1>          
           <p class="person-age person-text">Age: ${age}</p>
           <p class="person-sex person-text">${gender}</p>
-          <div class="person-data more-data">
             <p class="person-email person-text">E-mail: ${email}</p>
             <p class="person-location person-text">City: ${city}</p>
             <p class="person-location person-text">Country: ${country}</p>
             <p class="person-phone person-text">Phone-number: ${phone}</p>
-            </div>
+
         </div>
       </div>`
     )
@@ -94,7 +93,6 @@ function sortByAge(data) {
   if (filterContainer.sort == "ageDown") {
     return data.sort((b, a) => a.age - b.age);
   }
-
   return data;
 }
 
@@ -161,7 +159,41 @@ filterContainer.addEventListener("input", ({ target }) => {
   if (target.name == "sort") {
     filterContainer.sort = target.value;
   }
-  console.log(target.name);
+  showUsers(users);
+});
+
+filterContainer.addEventListener("keyup", function (e) {
+  if (e.keyCode == 13) {
+    closeFilters();
+  }
+});
+
+function closeFilters() {
+  const filtersInput = document.querySelector(".filter-input");
+  filtersInput.checked = false;
+}
+
+// reset
+
+const resetBtn = document.getElementById("reset-button");
+
+resetBtn.addEventListener("click", () => {
+  const sorting = document.getElementsByName("sort");
+  for (var i = 0; i < sorting.length; i++) {
+    sorting[i].checked = false;
+  }
+  filterContainer.sort = "all";
+
+  const filter = document.getElementsByName("filter");
+  for (var i = 0; i < filter.length - 1; i++) {
+    filter[i].checked = false;
+  }
+  filter[filter.length - 1].checked = true;
+  filterContainer.filter = "all";
+
+  const search = document.getElementById("searchName");
+  search.value = "";
+  filterContainer.search = "";
   showUsers(users);
 });
 
